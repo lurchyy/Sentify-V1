@@ -1,0 +1,17 @@
+{
+    "manifest_version": 3,
+    "name": "Comment Display",
+    "version": "1.0",
+    "description": "Display a specific <div> on the current webpage.",
+    "permissions": ["activeTab"],
+    "action": {
+      "default_popup": "popup.html"
+    },
+
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["content.js"]
+      }
+    ]
+}
