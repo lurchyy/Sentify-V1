@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify,render_template
 import openai 
-openai.api_key = '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'
+openai.api_key = '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'
 app = Flask(__name__)
 # @app.route('/', methods=['POST', 'GET'])
 # def index():
@@ -22,7 +22,7 @@ Text: ```{comments}```
     response=get_completion(prompt)
     print(response)
     # return render_template('chat.html', response=response)
-    # return jsonify({'message': 'Comments received and processed'})
+    return jsonify({'message': 'Comments received and processed'})
 
 
 def get_completion(prompt, model="gpt-3.5-turbo"):
