@@ -1,29 +1,28 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify,render_template
 import openai 
-openai.api_key = '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'
+openai.api_key = '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'
 app = Flask(__name__)
-
-@app.route('/', methods=['POST', 'GET'])
+# @app.route('/', methods=['POST', 'GET'])
+# def index():
+#     return render_template('chat.html')
+@app.route('/process_comments', methods=['POST', 'GET'])
 
 def process_comments():
     data = request.get_json()
-    
+    # print(data)
     comments = data.get('comments', [])
+    # print(comments)
     prompt = f"""Give me a sentiment report of the text delimited by triple backticks.
 The sentiment report should consist of sentiment score, sentiment label, and the text.
 Along with that provide a list of keywords which helped determine the sentiment.
 
 The final output should be a JSON object.
-Text: {comments}
+Text: ```{comments}```
 """
     response=get_completion(prompt)
-    
-    
-    
-    # for comment in comments:
-    #     print(comment)
-    
-    return jsonify({'message': 'Comments received and processed'})
+    print(response)
+    # return render_template('chat.html', response=response)
+    # return jsonify({'message': 'Comments received and processed'})
 
 
 def get_completion(prompt, model="gpt-3.5-turbo"):
