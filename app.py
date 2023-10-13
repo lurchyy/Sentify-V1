@@ -17,7 +17,7 @@ The sentiment report should consist of sentiment score, sentiment label, and the
 Along with that provide a list of keywords which helped determine the sentiment.
 
 The final output should be a JSON object.
-Text: {comments}
+Text: ```{comments}```
 """
     response=get_completion(prompt)
     print(response)
