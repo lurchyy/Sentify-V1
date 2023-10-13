@@ -1,3 +1,9 @@
+
+chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
+  // console.log(typeof message);
+  // console.log(JSON.stringify(message));
+  sendCommentsToFlask(message)
+});
 function sendCommentsToFlask(comments) {
   fetch('http://localhost:5000/process_comments', {
     method: 'POST',
@@ -14,7 +20,3 @@ function sendCommentsToFlask(comments) {
       console.error('Error:', error);
     });
 }
-chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
-  // console message dekne ke liye extension right click kar aur inspect me jaa, page refresh kar for logs
-  sendCommentsToFlask(message)
-});
