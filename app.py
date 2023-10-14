@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify,render_template
 import openai 
-openai.api_key = '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'
+openai.api_key = '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'
 app = Flask(__name__)
 response=None
 @app.route('/process_comments', methods=['POST', 'GET'])
@@ -20,7 +20,7 @@ def process_comments():
     4. Print the text.
 
 Make sure all of the above steps have been followed for each comment. Only then proceed to what is mentioned below.
-Finally print the count of positive comments and print the count of negative comments.
+
 
 The final output should be a JSON object.
 Text: ```{comments}```
@@ -43,6 +43,10 @@ def get_completion(prompt, model="gpt-3.5-turbo"):
         temperature=1.5, # this is the degree of randomness of the model's output
     )
     return response.choices[0].message["content"]
+
+
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)
