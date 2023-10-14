@@ -33,7 +33,7 @@ Text: ```{comments}```
 
 @app.route('/', methods=['POST', 'GET'])
 def index():
-    return render_template('chat.html',response=response)
+    return render_template('index.html',response={"h":response})
 
 def get_completion(prompt, model="gpt-3.5-turbo"):
     messages = [{"role": "user", "content": prompt}]
